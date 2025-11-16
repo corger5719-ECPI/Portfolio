@@ -54,3 +54,24 @@ table {
 }
 
 caption {
+
+/* Contact form stacked layout */
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* space between each field */
+}
+
+#contactForm label {
+    font-weight: bold;
+}
+
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
