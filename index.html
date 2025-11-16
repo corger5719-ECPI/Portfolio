@@ -1,114 +1,123 @@
-<!doctyp.html>
+<!DOCTYPE html>
 <html lang="en">
- <!-- Link the stylesheet -->
-  <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="index.html">
- 
+
 <head>
-<meta charset="utf-8">
-<meta name="keywords" content="HTML, example, webpage">
-<meta name="author" content="Cora Germany">
-<meta name="viewport" content="width-device-width, initial-scale=1.0">
-<title>Welcome!</title>
- </head>
-  <body>
+    <meta charset="utf-8">
+    <meta name="keywords" content="HTML, example, webpage">
+    <meta name="author" content="Cora Germany">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
 
-   <!-- This message will change using JavaScript -->
+    <!-- Link the stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Welcome message updated by JavaScript -->
     <h1 id="welcomeMsg">Welcome!</h1>
-   
-   <script>
-        // Ask the user for their name
-        let userName = prompt("What is your name?");
 
-        // If the user types something, update the message
+    <script>
+        let userName = prompt("What is your name?");
         if (userName) {
             document.getElementById("welcomeMsg").textContent =
                 "Welcome to Portfolio, " + userName + "!";
         } else {
-            // If they leave it blank, use a default
             document.getElementById("welcomeMsg").textContent =
                 "Welcome to my website!";
         }
     </script>
-   
-  <header>
+
+    <!-- Header & Navigation -->
+    <header>
         <nav>
-        <ul><li><a href="about">About</a></li></ul>
-        <ul><li><a href="projects">Project</a></li></ul>
-        <ul><li><a href="contacts">Contact</a></li></ul>
-  <table>
-    <caption>Portfolio Project Showcase</caption>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Define column colors -->
-    <colgroup>
-      <col style="background-color: #f0f8ff;"> <!-- First column -->
-      <col> <!-- Second column -->
-      <col style="background-color: #f0f8ff;"> <!-- Third column -->
-    </colgroup>
+    <!-- MAIN CONTENT -->
+    <main>
 
-    <thead>
-      <tr>
-        <th>Project Name</th>
-        <th>Description</th>
-        <th>Image</th>
-      </tr>
-    </thead>
+        <!-- ABOUT SECTION -->
+        <section id="about">
+            <h2>About</h2>
+            <p>Welcome to the About section.</p>
+        </section>
 
-    <tbody>
-      <tr>
-        <td>Smart Home Dashboard</td>
-        <td>A responsive web dashboard that lets users monitor and control smart home devices such as lights, thermostats, and cameras in real-time.</td>
-        <td><img src="placeholder1.jpg" alt="Smart Home Dashboard" width="150" height="100"></td>
-      </tr>
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <h2>Projects</h2>
 
-      <tr>
-        <td>AI Chat Assistant</td>
-        <td>An interactive chatbot project using natural language processing to provide automated customer support and answer common questions.</td>
-        <td><img src="placeholder2.jpg" alt="AI Chat Assistant" width="150" height="100"></td>
-      </tr>
-    </tbody>
+            <table>
+                <caption>Portfolio Project Showcase</caption>
 
-    <tfoot>
-      <tr>
-        <td colspan="3">© 2025 Cora Germany —Portfolio</td>
-      </tr>
-    </tfoot>
-  </table>
-</section>
-       
-        <ul><li><a href="contact">Contact</a></li></ul>
-       <section id="contact">
-  <h2>Contact Me</h2>
-  
-  <!-- Contact Form -->
-  <form id="contactForm" action="#" method="post">
-    <!-- Name Field -->
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required />
+                <colgroup>
+                    <col style="background-color: #f0f8ff;">
+                    <col>
+                    <col style="background-color: #f0f8ff;">
+                </colgroup>
 
-    <!-- Email Field -->
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required />
+                <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                </tr>
+                </thead>
 
-    <!-- Subject Field -->
-    <label for="subject">Subject:</label>
-    <input type="text" id="subject" name="subject" />
+                <tbody>
+                <tr>
+                    <td>Smart Home Dashboard</td>
+                    <td>A responsive web dashboard that lets users monitor and control smart home devices such as lights, thermostats, and cameras in real-time.</td>
+                    <td><img src="placeholder1.jpg" alt="Smart Home Dashboard" width="150" height="100"></td>
+                </tr>
 
-    <!-- Message Field -->
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" rows="5"></textarea>
+                <tr>
+                    <td>AI Chat Assistant</td>
+                    <td>An interactive chatbot project using natural language processing to provide automated customer support and answer common questions.</td>
+                    <td><img src="placeholder2.jpg" alt="AI Chat Assistant" width="150" height="100"></td>
+                </tr>
+                </tbody>
 
-    <!-- Submit Button -->
-    <input type="submit" value="Send Message" />
-  </form>
-</section>
+                <tfoot>
+                <tr>
+                    <td colspan="3">© 2025 Cora Germany — Portfolio</td>
+                </tr>
+                </tfoot>
+            </table>
+        </section>
 
-       
-      </nav>
-  <main><section id="about"<h2>About</h2> <p>Welcome to the About section.</p></section>
-  <section id="projects"<h2>About</h2> <p>Welcome to the Projects section.</p></section>
-   
-  <section id="contact"<h2>About</h2> <p>Welcome to the Contact section.</p></section>
-  </main>
-  <footer> &copy; 2025 Cora Germany</footer></body></html>
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <h2>Contact Me</h2>
 
+            <form id="contactForm" action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject">
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5"></textarea>
+
+                <input type="submit" value="Send Message">
+            </form>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2025 Cora Germany
+    </footer>
+
+</body>
+</html>
