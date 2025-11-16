@@ -1,0 +1,172 @@
+/* GLOBAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY STYLE */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+    color: #333;
+    line-height: 1.6;
+    padding-bottom: 50px;
+}
+
+/* HEADER & NAVIGATION */
+header {
+    background: #2b2b2b;
+    padding: 15px 0;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffeb3b;
+}
+
+/* SECTION HEADERS */
+h2 {
+    text-align: center;
+    color: #2b2b2b;
+    font-size: 32px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* ABOUT SECTION */
+#about {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    background: #ffffffaa;
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(3px);
+}
+
+#about p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* PROJECT TABLE */
+#projects {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    background: #ffffffaa;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th {
+    background: #6a5acd;
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+}
+
+table td {
+    padding: 12px;
+    background: #ffffffcc;
+}
+
+table img {
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+/* CONTACT FORM */
+#contact {
+    width: 90%;
+    max-width: 700px;
+    margin: 30px auto;
+    background: #ffffffaa;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #555;
+    font-size: 16px;
+}
+
+/* SUBMIT BUTTON */
+input[type="submit"] {
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 18px;
+    background: #6a5acd;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background: #483d8b;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background: #2b2b2b;
+    color: white;
+}
+
+/* RESPONSIVE DESIGN — makes things look good on phones */
+@media (max-width: 700px) {
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    table th, table td {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    input[type="submit"] {
+        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+}
