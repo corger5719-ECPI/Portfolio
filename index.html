@@ -9,12 +9,25 @@
 <meta name="keywords" content="HTML, example, webpage">
 <meta name="author" content="Cora Germany">
 <meta name="viewport" content="width-device-width, initial-scale=1.0">
-<title>Sample Webpage</title>
+<title>Welcome</title>
+  <script>
+        // Ask the user for their name
+        let userName = prompt("What is your name?");
+
+        // If the user types something, update the message
+        if (userName) {
+            document.getElementById("welcomeMsg").textContent =
+                "Welcome to Portfolio, " + userName + "!";
+        } else {
+            // If they leave it blank, use a default
+            document.getElementById("welcomeMsg").textContent =
+                "Welcome to my website!";
+        }
+    </script>
 </head>
   <body>
   <header>
-    <h1>Welcome to the Cora Germany's Portfolio</h1>
-      <nav>
+        <nav>
         <ul><li><a href="about">About</a></li></ul>
         <ul><li><a href="projects">Project</a></li></ul>
         <ul><li><a href="contacts">Contact</a></li></ul>
