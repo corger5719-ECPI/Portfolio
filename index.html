@@ -14,6 +14,14 @@
 
 <body>
 
+    <!-- Dark Mode Toggle -->
+    <header>
+        <label>
+            <input type="checkbox" id="darkModeToggle">
+            Dark Mode
+        </label>
+    </header>
+
     <!-- Welcome message updated by JavaScript -->
     <h1 id="welcomeMsg">Welcome!</h1>
 
@@ -28,12 +36,13 @@
         }
     </script>
 
-    <!-- Header & Navigation -->
+    <!-- Navigation -->
     <header>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#featured">Featured Content</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -53,6 +62,34 @@
             <p>I have an associate’s degree in applied science and several certifications. My computer experience is partly self-taught, and I’m excited to continue learning more about technology.</p>
 
             <p>I am studying Information Technology with a focus on mobile and web development. I believe this career path will offer greater flexibility and opportunities.</p>
+
+            <!-- Skills List Added -->
+            <h3>My Skills</h3>
+            <ul id="skillsList"></ul>
+        </section>
+
+        <!-- FEATURED CONTENT SECTION -->
+        <section id="featured">
+            <h2>Featured Content</h2>
+
+            <!-- University Resources -->
+            <div id="universityResources" class="featured-box">
+                <h3>University Resources</h3>
+                <ul>
+                    <li><a href="https://mycampus.ecpi.edu" target="_blank">ECPI MyCampus</a></li>
+                    <li><a href="https://ecpi.edu" target="_blank">ECPI University</a></li>
+                </ul>
+            </div>
+
+            <!-- Personal Projects -->
+            <div id="personalProjects" class="featured-box">
+                <h3>Personal Projects</h3>
+                <div class="featured-projects">
+                    <a href="#" target="_blank"><img src="https://via.placeholder.com/150x100?text=Project+1" alt="Project 1"></a>
+                    <a href="#" target="_blank"><img src="https://via.placeholder.com/150x100?text=Project+2" alt="Project 2"></a>
+                    <a href="#" target="_blank"><img src="https://via.placeholder.com/150x100?text=Project+3" alt="Project 3"></a>
+                </div>
+            </div>
         </section>
 
         <!-- PROJECTS SECTION -->
@@ -69,25 +106,25 @@
                 </colgroup>
 
                 <thead>
-                    <tr>
-                        <th>Project Name</th>
-                        <th>Description</th>
-                        <th>Image</th>
-                    </tr>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                </tr>
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>Smart Home Dashboard</td>
-                        <td>A responsive dashboard that lets users control smart home devices.</td>
-                        <td><img src="placeholder1.jpg" alt="Smart Home Dashboard" width="150" height="100"></td>
-                    </tr>
+                <tr class="project-item">
+                    <td>Smart Home Dashboard</td>
+                    <td>A responsive dashboard that lets users control smart home devices.</td>
+                    <td><img src="placeholder1.jpg" alt="Smart Home Dashboard" width="150" height="100"></td>
+                </tr>
 
-                    <tr>
-                        <td>AI Chat Assistant</td>
-                        <td>A chatbot project using natural language processing.</td>
-                        <td><img src="placeholder2.jpg" alt="AI Chat Assistant" width="150" height="100"></td>
-                    </tr>
+                <tr class="project-item">
+                    <td>AI Chat Assistant</td>
+                    <td>A chatbot project using natural language processing.</td>
+                    <td><img src="placeholder2.jpg" alt="AI Chat Assistant" width="150" height="100"></td>
+                </tr>
                 </tbody>
             </table>
         </section>
@@ -110,7 +147,7 @@
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="5"></textarea>
 
-                <input type="submit" value="Send Message">
+                <button id="contactSubmit">Send Message</button>
             </form>
         </section>
 
@@ -121,5 +158,6 @@
         &copy; 2025 Cora Germany
     </footer>
 
-</body>
-</html>
+    <!-- MAIN JAVASCRIPT -->
+    <script>
+    document.addEv
