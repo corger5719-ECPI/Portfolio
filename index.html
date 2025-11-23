@@ -13,14 +13,10 @@
 </head>
 
 <body>
-
-    <!-- Dark Mode Toggle -->
-    <header>
-        <label>
-            <input type="checkbox" id="darkModeToggle">
-            Dark Mode
-        </label>
-    </header>
+  <!-- Dark Mode Toggle -->
+<label class="switch">
+    <input type="checkbox" id="darkModeToggle">
+    <span class="slider"></span>
 
     <!-- Welcome message updated by JavaScript -->
     <h1 id="welcomeMsg">Welcome!</h1>
@@ -71,6 +67,26 @@
         <!-- FEATURED CONTENT SECTION -->
         <section id="featured">
             <h2>Featured Content</h2>
+
+            <section id="projects">
+    <h2>Projects</h2>
+    <ul id="projectList">
+        <li>Project 1</li>
+        <li>Project 2</li>
+        <!-- Add or remove items to test -->
+    </ul>
+</section>
+
+<div id="universityResources" class="resource-box">
+    <h3>University Resources</h3>
+    <p>Resources for ECPI courses...</p>
+</div>
+
+<div id="personalProjects" class="resource-box">
+    <h3>Personal Projects</h3>
+    <p>Your self-made projects and experiments...</p>
+</div>
+
 
             <!-- University Resources -->
             <div id="universityResources" class="featured-box">
