@@ -2,192 +2,20 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="keywords" content="HTML, example, webpage">
+    <meta charset="UTF-8">
     <meta name="author" content="Cora Germany">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome!</title>
+    <title>Portfolio Assignment</title>
 
-    <!-- Link the stylesheet -->
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-  <!-- Dark Mode Toggle -->
-<label class="switch">
-    <input type="checkbox" id="darkModeToggle">
-    <span class="slider"></span>
-
-    <!-- Welcome message updated by JavaScript -->
-    <h1 id="welcomeMsg">Welcome!</h1>
-
-    <script>
-        let userName = prompt("What is your name?");
-        if (userName) {
-            document.getElementById("welcomeMsg").textContent =
-                "Welcome to Portfolio, " + userName + "!";
-        } else {
-            document.getElementById("welcomeMsg").textContent =
-                "Welcome to my website!";
+    <!-- Stylesheet -->
+    <style>
+        body {
+            background: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            transition: 0.3s;
         }
-    </script>
 
-    <!-- Navigation -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#featured">Featured Content</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- MAIN CONTENT -->
-    <main>
-
-        <!-- ABOUT SECTION -->
-        <section id="about">
-            <h2>About</h2>
-
-            <p>Welcome to the About section.</p>
-
-            <p>My work background includes experience in the insurance and medical fields, where I have served as a secretary, medical coder, and transcriptionist. I currently work part-time as a teacher assistant at a military childcare development center.</p>
-
-            <p>I have an associate’s degree in applied science and several certifications. My computer experience is partly self-taught, and I’m excited to continue learning more about technology.</p>
-
-            <p>I am studying Information Technology with a focus on mobile and web development. I believe this career path will offer greater flexibility and opportunities.</p>
-
-            <!-- Skills List Added -->
-            <h3>My Skills</h3>
-            <ul id="C Programming"></ul>
-             <ul id="HTML"></ul>
-             <ul id="CSS"></ul>
-             <ul id="JavaScript"></ul>
-             <ul id="GitHub"></ul>
-        </section>
-
-        <!-- FEATURED CONTENT SECTION -->
-        <section id="featured">
-            <h2>Featured Content</h2>
-
-            <section id="projects">
-    <h2>Projects</h2>
-    <ul id="projectList">
-        <li>Project 1</li>
-        <li>Project 2</li>
-        <!-- Add or remove items to test -->
-    </ul>
-</section>
-
-<div id="universityResources" class="resource-box">
-    <h3>University Resources</h3>
-    <p>Resources for ECPI courses...</p>
-</div>
-
-<div id="personalProjects" class="resource-box">
-    <h3>Personal Projects</h3>
-    <p>Your self-made projects and experiments...</p>
-</div>
-
-
-            <!-- University Resources -->
-            <div id="universityResources" class="featured-box">
-                <h3>University Resources</h3>
-                <ul>
-                    <li><a href="https://www.ecpi.edu/college-of-technology" target="_blank">ECPI Technology</a></li>
-                    <li><a href="https://ecpi.edu" target="_blank">ECPI University</a></li>
-                </ul>
-            </div>
-
-            <!-- Personal Projects -->
-            <div id="personalProjects" class="featured-box">
-                <h3>Personal Projects</h3>
-                <div class="featured-projects">
-                    <a href="#" target="_blank"><img src="https://corger5719-ecpi.github.io/blog/"></a>
-                    <a href="#" target="_blank"><img src="https://corger5719-ecpi.github.io/storefront.html/"></a>
-                    <a href="#" target="_blank"><img src="https://corger5719-ecpi.github.io/Course-Project"></a>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJECTS SECTION -->
-        <section id="projects">
-            <h2>Projects</h2>
-
-            <table>
-                <caption>Portfolio Project Showcase</caption>
-
-                <colgroup>
-                    <col style="background-color: #f0f8ff;">
-                    <col>
-                    <col style="background-color: #f0f8ff;">
-                </colgroup>
-
-                <thead>
-                <tr>
-                    <th>Project Name</th>
-                    <th>Description</th>
-                    <th>Image</th>
-                </tr>
-                </thead>
-
-                <tbody>
-                <tr class="project-item">
-                    <td>Smart Home Dashboard</td>
-                    <td>A responsive dashboard that lets users control smart home devices.</td>
-                    <td><img src="placeholder1.jpg" alt="Smart Home Dashboard" width="150" height="100"></td>
-                </tr>
-
-                <tr class="project-item">
-                    <td>AI Chat Assistant</td>
-                    <td>A chatbot project using natural language processing.</td>
-                    <td><img src="placeholder2.jpg" alt="AI Chat Assistant" width="150" height="100"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- CONTACT SECTION -->
-        <section id="contact">
-            <h2>Contact Me</h2>
-
-            <form id="contactForm" action="#" method="post">
-
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="subject">Subject:</label>
-                <input type="text" id="subject" name="subject">
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5"></textarea>
-
-                <button id="contactSubmit">Send Message</button>
-            </form>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        &copy; 2025 Cora Germany
-    </footer>
-
-    <!-- MAIN JAVASCRIPT -->
-    <script>
-    document.addEv
-
-        <script>
-    var toggle = document.getElementById("darkModeToggle");
-
-    toggle.addEventListener("change", function () {
-        document.body.classList.toggle("dark-mode");
-    });
-</script>
-    </body>
-
+        /* DARK MODE */
+        .dark-mode {
+            background:
