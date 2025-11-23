@@ -77,3 +77,59 @@ section h2 {
 }
 
 .project-card
+
+/* Basic page light mode */
+body {
+    background-color: white;
+    color: black;
+    transition: 0.3s ease;
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: #111;
+    color: white;
+}
+
+/* Toggle Switch Styling */
+.switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1em;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    width: 40px;
+    height: 20px;
+    background: gray;
+    border-radius: 20px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: 0.3s;
+}
+
+input:checked + .slider {
+    background: #4caf50;
+}
+
+input:checked + .slider::before {
+    transform: translateX(20px);
+}
