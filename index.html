@@ -99,16 +99,21 @@
     </label>
 
     <!-- WELCOME MESSAGE -->
-    <h1 id="welcomeMsg">Welcome!</h1>
-
     <script>
-        // Welcome Message Script
-        let userName = prompt("What is your name?");
-        if (userName) {
-            welcomeMsg.textContent = "Welcome to my Portfolio, " + userName + "!";
-        } else {
-            welcomeMsg.textContent = "Welcome to my Portfolio!";
-        }
+    // Welcome Message Script
+    let userName = prompt("What is your name?");
+    if (userName) {
+        welcomeMsg.textContent = "Welcome to my Portfolio, " + userName + "!";
+    } else {
+        welcomeMsg.textContent = "Welcome to my Portfolio!";
+    }
+
+    // Change background to light yellow
+    welcomeMsg.style.background = "#fff8b3";   // light yellow
+    welcomeMsg.style.padding = "10px";
+    welcomeMsg.style.borderRadius = "8px";
+</script>
+
     </script>
 
     <!-- NAVIGATION -->
@@ -167,21 +172,24 @@
 
     <!-- CONTACT SECTION -->
     <section id="contact">
-        <h2>Contact Me</h2>
+      <h2>Contact Me</h2>
 
-        <form id="contactForm">
-            <label>Name:</label>
-            <input type="text" id="name">
+    <form id="contactForm">
+        <label>Name:</label>
+        <input type="text" id="name">
 
-            <label>Email:</label>
-            <input type="email" id="email">
+        <label>Email:</label>
+        <input type="email" id="email">
 
-            <label>Message:</label>
-            <textarea id="message"></textarea>
+        <label>Message:</label>
+        <textarea id="message"></textarea>
 
-            <button id="contactSubmit">Send Message</button>
-        </form>
-    </section>
+        <button id="contactSubmit" type="submit">Send Message</button>
+    </form>
+
+    <div id="formStatus"></div> <!-- STATUS MESSAGE SHOWS HERE -->
+</section>
+
 
     <!-- FOOTER -->
     <footer>&copy; 2025 Cora Germany</footer>
@@ -262,6 +270,8 @@
     contactForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
+       
+        <button id="contactSubmit" type="submit">Send Message</button>
         messageBox.textContent = "Sending message...";
         messageBox.style.color = "orange";
 
