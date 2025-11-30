@@ -187,56 +187,91 @@
     <footer>&copy; 2025 Cora Germany</footer>
 
     <!-- JAVASCRIPT -->
-    <script>
-        // ---------------------------------
-        // DARK MODE
-        // ---------------------------------
-        document.getElementById("darkModeToggle").addEventListener("change", function () {
-            document.body.classList.toggle("dark-mode");
-        });
+   <script>
+    // ---------------------------------
+    // DARK MODE
+    // ---------------------------------
+    document.getElementById("darkModeToggle").addEventListener("change", function () {
+        document.body.classList.toggle("dark-mode");
+    });
 
-        // ---------------------------------
-        // CONDITIONAL FEATURED CONTENT
-        // ---------------------------------
-        window.addEventListener("load", function () {
-            var projectCount = document.querySelectorAll("#projectList li").length;
-            var uni = document.getElementById("universityResources");
-            var personal = document.getElementById("personalProjects");
+    // ---------------------------------
+    // CONDITIONAL FEATURED CONTENT
+    // ---------------------------------
+    window.addEventListener("load", function () {
+        var projectCount = document.querySelectorAll("#projectList li").length;
+        var uni = document.getElementById("universityResources");
+        var personal = document.getElementById("personalProjects");
 
-            if (projectCount < 3) {
-                uni.classList.remove("hidden");
-                personal.classList.remove("hidden");
-            } else {
-                uni.classList.add("hidden");
-                personal.classList.remove("hidden");
-            }
-        });
+        if (projectCount < 3) {
+            uni.classList.remove("hidden");
+            personal.classList.remove("hidden");
+        } else {
+            uni.classList.add("hidden");
+            personal.classList.remove("hidden");
+        }
+    });
 
-        // ---------------------------------
-        // SKILLS LIST ARRAY + LOOP
-        // ---------------------------------
-        var skills = ["HTML", "CSS", "JavaScript", "Git", "GitHub", "C Programming"];
-        var list = document.getElementById("skillList");
+    // ---------------------------------
+    // SKILLS LIST ARRAY + LOOP
+    // ---------------------------------
+    var skills = ["HTML", "CSS", "JavaScript", "Git", "GitHub", "C Programming"];
+    var list = document.getElementById("skillList");
 
-        skills.forEach(function (skill) {
-            var li = document.createElement("li");
-            li.textContent = skill;
-            list.appendChild(li);
-        });
+    skills.forEach(function (skill) {
+        var li = document.createElement("li");
+        li.textContent = skill;
+        list.appendChild(li);
+    });
 
-        // ---------------------------------
-        // FORM SUBMIT INTERACTIVITY
-        // ---------------------------------
-        document.getElementById("contactSubmit").addEventListener("click", function (event) {
-            event.preventDefault();
+    // ---------------------------------
+    // (1) DYNAMICALLY ADD NEW CONTENT
+    // ---------------------------------
+    setTimeout(function () {
+        const newPara = document.createElement("p");
+        newPara.textContent = "Recently Added: I completed a JavaScript DOM manipulation project!";
+        newPara.style.fontStyle = "italic";
+        newPara.style.color = "#0077cc";
 
-            var name = document.getElementById("name").value;
-            if (name.trim() === "") {
-                alert("Please enter your name.");
-                return;
-            }
-            alert("Thank you, " + name + "! Your message has been sent.");
-        });
+        document.querySelector("#about").appendChild(newPara);
+    }, 2000);
+
+
+    // ---------------------------------
+    // (2) MODIFY EXISTING ELEMENTS
+    // ---------------------------------
+
+    // Change Projects heading color
+    const projectHeading = document.querySelector("#projects h2");
+    projectHeading.style.color = "purple";
+
+    // Add border highlight around Featured Section
+    const featuredSection = document.getElementById("featured");
+    featuredSection.style.border = "3px solid #4caf50";
+
+
+    // ---------------------------------
+    // (3) TIMED FORM SUBMISSION MESSAGE
+    // ---------------------------------
+
+    const contactForm = document.getElementById("contactForm");
+    const messageBox = document.createElement("p");
+    messageBox.style.fontWeight = "bold";
+    document.getElementById("contact").appendChild(messageBox);
+
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        messageBox.textContent = "Sending message...";
+        messageBox.style.color = "orange";
+
+        setTimeout(function () {
+            messageBox.textContent = "Message sent successfully!";
+            messageBox.style.color = "green";
+        }, 2500);
+    });
+</script>
+
     </script>
 
 </body>
