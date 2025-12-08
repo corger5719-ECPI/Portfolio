@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Assignment</title>
 
-    <!-- Stylesheet -->
+    <!-- =========================
+         INTERNAL STYLESHEET
+         ========================= -->
     <style>
+        /* Default Light Mode Styling */
         body {
             background: white;
             color: black;
@@ -16,13 +19,13 @@
             transition: 0.3s;
         }
 
-        /* DARK MODE */
+        /* Dark Mode Styling (Applied via JavaScript) */
         .dark-mode {
             background: #121212;
             color: #f2f2f2;
         }
 
-        /* Toggle switch */
+        /* ===== Dark Mode Toggle Switch ===== */
         .switch {
             display: flex;
             align-items: center;
@@ -34,16 +37,16 @@
             display: none;
         }
 
-        .switch .slider {
+        .slider {
             width: 40px;
             height: 20px;
             background: gray;
             border-radius: 20px;
-            position: relative;
             cursor: pointer;
+            position: relative;
         }
 
-        .switch .slider::before {
+        .slider::before {
             content: "";
             width: 16px;
             height: 16px;
@@ -86,93 +89,144 @@
         .hidden {
             display: none;
         }
+
+        /* ===== WELCOME MODAL STYLING ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal {
+            background: #fff8b3;
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .modal button {
+            margin-top: 15px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        /* ===== TOOLTIP STYLING ===== */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 180px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 6px;
+            border-radius: 6px;
+
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- DARK MODE TOGGLE -->
-    <label class="switch">
-        <input type="checkbox" id="darkModeToggle">
-        <span class="slider"></span>
-        Dark Mode
-    </label>
+<!-- =========================
+     WELCOME MODAL (NO prompt())
+     ========================= -->
+<div id="welcomeModal" class="modal-overlay">
+    <div class="modal">
+        <h3>Welcome</h3>
+        <p>This page is a work in progress.</p>
+        <button id="closeModal">Close</button>
+    </div>
+</div>
 
-    <!-- WELCOME MESSAGE -->
-    <script>
-    // Welcome Message Script
-    let userName = prompt("What is your name?");
-    if (userName) {
-        welcomeMsg.textContent = "Welcome to my Portfolio, " + userName + "!";
-    } else {
-        welcomeMsg.textContent = "Welcome to my Portfolio!";
-    }
+<!-- =========================
+     DARK MODE TOGGLE
+     ========================= -->
+<label class="switch">
+    <input type="checkbox" id="darkModeToggle">
+    <span class="slider"></span>
+    Dark Mode
+</label>
 
-    // Change background to light yellow
-    welcomeMsg.style.background = "#fff8b3";   // light yellow
-    welcomeMsg.style.padding = "10px";
-    welcomeMsg.style.borderRadius = "8px";
-</script>
-
-    </script>
-
-    <!-- NAVIGATION -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#featured">Featured Content</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- ABOUT SECTION -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am an Information Technology student learning programming, networking, web development, and system fundamentals.</p>
-
-        <h3>My Skills</h3>
-        <ul id="skillList"></ul>
-    </section>
-
-    <!-- FEATURED CONTENT SECTION -->
-    <section id="featured">
-        <h2>Featured Content</h2>
-
-        <div id="universityResources" class="featured-box">
-            <h3>University Resources</h3>
-            <ul>
-                <li><a href="https://www.ecpi.edu/college-of-technology" target="_blank">ECPI College of Technology</a></li>
-                <li><a href="https://ecpi.edu" target="_blank">ECPI University</a></li>
-            </ul>
-        </div>
-
-        <div id="personalProjects" class="featured-box">
-            <h3>Personal Projects</h3>
-            <p>My personal GitHub/web-based projects:</p>
-            <ul>
-                <li><a href="#" target="_blank">Project Image 1</a></li>
-                <li><a href="#" target="_blank">Project Image 2</a></li>
-                <li><a href="#" target="_blank">Project Image 3</a></li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul id="projectList">
-            <li>Project A</li>
-            <li>Project B</li>
-            <li>Project C</li> <!-- You can change number of projects to test -->
+<!-- =========================
+     NAVIGATION
+     ========================= -->
+<header>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#featured">Featured</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
-    </section>
+    </nav>
+</header>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact">
-      <h2>Contact Me</h2>
+<!-- =========================
+     ABOUT SECTION
+     ========================= -->
+<section id="about">
+    <h2>About Me</h2>
+    <p>I am an Information Technology student learning programming and web development.</p>
+
+    <h3>My Skills</h3>
+    <ul id="skillList"></ul> <!-- Filled dynamically using JavaScript -->
+</section>
+
+<!-- =========================
+     FEATURED CONTENT
+     ========================= -->
+<section id="featured">
+    <h2>Featured Content</h2>
+
+    <div id="universityResources" class="featured-box">
+        <h3>University Resources</h3>
+        <ul>
+            <li><a href="https://www.ecpi.edu" target="_blank">ECPI University</a></li>
+        </ul>
+    </div>
+
+    <div id="personalProjects" class="featured-box">
+        <h3>Personal Projects</h3>
+        <p>Coming soon!</p>
+    </div>
+</section>
+
+<!-- =========================
+     PROJECTS
+     ========================= -->
+<section id="projects">
+    <h2>Projects</h2>
+    <ul id="projectList">
+        <li>Project A</li>
+        <li>Project B</li>
+    </ul>
+</section>
+
+<!-- =========================
+     CONTACT FORM
+     ========================= -->
+<section id="contact">
+    <h2>Contact Me</h2>
 
     <form id="contactForm">
         <label>Name:</label>
@@ -184,105 +238,105 @@
         <label>Message:</label>
         <textarea id="message"></textarea>
 
-        <button id="contactSubmit" type="submit">Send Message</button>
+        <!-- Tooltip appears on hover -->
+        <div class="tooltip">
+            <button type="submit">Send Message</button>
+            <span class="tooltip-text">Click to send your message!</span>
+        </div>
     </form>
-
-    <div id="formStatus"></div> <!-- STATUS MESSAGE SHOWS HERE -->
 </section>
 
+<footer>&copy; 2025 Cora Germany</footer>
 
-    <!-- FOOTER -->
-    <footer>&copy; 2025 Cora Germany</footer>
+<!-- =========================
+     JAVASCRIPT SECTION
+     ========================= -->
+<script>
+/* --------------------------------------------------
+   WELCOME MODAL FUNCTIONALITY
+   --------------------------------------------------
+   Displays a custom modal when the page loads
+   and allows the user to close it with a button.
+-------------------------------------------------- */
+document.getElementById("closeModal").addEventListener("click", function () {
+    document.getElementById("welcomeModal").style.display = "none";
+});
 
-    <!-- JAVASCRIPT -->
-   <script>
-    // ---------------------------------
-    // DARK MODE
-    // ---------------------------------
-    document.getElementById("darkModeToggle").addEventListener("change", function () {
-        document.body.classList.toggle("dark-mode");
-    });
+/* --------------------------------------------------
+   DARK MODE WITH localStorage
+   --------------------------------------------------
+   - Saves user preference when toggled
+   - Restores preference on page reload
+-------------------------------------------------- */
+const toggle = document.getElementById("darkModeToggle");
 
-    // ---------------------------------
-    // CONDITIONAL FEATURED CONTENT
-    // ---------------------------------
-    window.addEventListener("load", function () {
-        var projectCount = document.querySelectorAll("#projectList li").length;
-        var uni = document.getElementById("universityResources");
-        var personal = document.getElementById("personalProjects");
+// Apply saved preference (if it exists)
+if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
+    toggle.checked = true;
+}
 
-        if (projectCount < 3) {
-            uni.classList.remove("hidden");
-            personal.classList.remove("hidden");
-        } else {
-            uni.classList.add("hidden");
-            personal.classList.remove("hidden");
-        }
-    });
+// Listen for toggle changes
+toggle.addEventListener("change", function () {
+    document.body.classList.toggle("dark-mode");
 
-    // ---------------------------------
-    // SKILLS LIST ARRAY + LOOP
-    // ---------------------------------
-    var skills = ["HTML", "CSS", "JavaScript", "Git", "GitHub", "C Programming"];
-    var list = document.getElementById("skillList");
+    if (toggle.checked) {
+        localStorage.setItem("darkMode", "enabled");
+    } else {
+        localStorage.setItem("darkMode", "disabled");
+    }
+});
 
-    skills.forEach(function (skill) {
-        var li = document.createElement("li");
-        li.textContent = skill;
-        list.appendChild(li);
-    });
+/* --------------------------------------------------
+   SKILLS ARRAY + LOOP
+   --------------------------------------------------
+   Dynamically populates the Skills list using
+   a JavaScript array and forEach loop.
+-------------------------------------------------- */
+const skills = ["HTML", "CSS", "JavaScript", "Git", "GitHub", "C Programming"];
+const list = document.getElementById("skillList");
 
-    // ---------------------------------
-    // (1) DYNAMICALLY ADD NEW CONTENT
-    // ---------------------------------
-    setTimeout(function () {
-        const newPara = document.createElement("p");
-        newPara.textContent = "Recently Added: I completed a JavaScript DOM manipulation project!";
-        newPara.style.fontStyle = "italic";
-        newPara.style.color = "#0077cc";
+skills.forEach(skill => {
+    const li = document.createElement("li");
+    li.textContent = skill;
+    list.appendChild(li);
+});
 
-        document.querySelector("#about").appendChild(newPara);
+/* --------------------------------------------------
+   CONDITIONAL FEATURED CONTENT
+   --------------------------------------------------
+   Hides the University Resources section when
+   three or more projects exist.
+-------------------------------------------------- */
+window.addEventListener("load", function () {
+    const projectCount = document.querySelectorAll("#projectList li").length;
+
+    if (projectCount >= 3) {
+        document.getElementById("universityResources").classList.add("hidden");
+    }
+});
+
+/* --------------------------------------------------
+   FORM SUBMISSION STATUS MESSAGE
+   --------------------------------------------------
+   Displays a timed message simulating form submission.
+-------------------------------------------------- */
+const contactForm = document.getElementById("contactForm");
+const statusMsg = document.createElement("p");
+document.getElementById("contact").appendChild(statusMsg);
+
+contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    statusMsg.textContent = "Sending message...";
+    statusMsg.style.color = "orange";
+
+    setTimeout(() => {
+        statusMsg.textContent = "Message sent successfully!";
+        statusMsg.style.color = "green";
     }, 2000);
-
-
-    // ---------------------------------
-    // (2) MODIFY EXISTING ELEMENTS
-    // ---------------------------------
-
-    // Change Projects heading color
-    const projectHeading = document.querySelector("#projects h2");
-    projectHeading.style.color = "purple";
-
-    // Add border highlight around Featured Section
-    const featuredSection = document.getElementById("featured");
-    featuredSection.style.border = "3px solid #4caf50";
-
-
-    // ---------------------------------
-    // (3) TIMED FORM SUBMISSION MESSAGE
-    // ---------------------------------
-
-    const contactForm = document.getElementById("contactForm");
-    const messageBox = document.createElement("p");
-    messageBox.style.fontWeight = "bold";
-    document.getElementById("contact").appendChild(messageBox);
-
-    contactForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-       
-        <button id="contactSubmit" type="submit">Send Message</button>
-        messageBox.textContent = "Sending message...";
-        messageBox.style.color = "orange";
-
-        setTimeout(function () {
-            messageBox.textContent = "Message sent successfully!";
-            messageBox.style.color = "green";
-        }, 2500);
-    });
+});
 </script>
-
-    </script>
 
 </body>
 </html>
