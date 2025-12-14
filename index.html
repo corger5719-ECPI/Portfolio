@@ -336,6 +336,58 @@ contactForm.addEventListener("submit", function (e) {
         statusMsg.style.color = "green";
     }, 2000);
 });
+
+   let projects;
+const STORAGE_KEY = 'portfolioProjects';
+
+// On page load, check if the data exists in the session storage
+const storedProjects = sessionStorage.getItem(STORAGE_KEY);
+
+if (storedProjects) {
+  // If data does exist, retrieve and parse it using JSON.parse()
+  projects = JSON.parse(storedProjects);
+} else {
+  // If no data exists, store the project array in session storage
+  projects = projectData; // Assume projectData is defined as above
+  sessionStorage.setItem(STORAGE_KEY, JSON.stringify(projectData));
+}
+
+// At this point, the 'projects' array can be used for rendering
+console.log("Projects data available:", projects);
+
+    function renderProjects(projectsArray) {
+  // Select the project section of your portfolio page using a DOM selector
+  const projectSection = document.getElementById('project-list');
+  
+  if (!projectSection) {
+    console.error('Project section element not found!');
+    return;
+  }
+
+  // Loop through the array and dynamically create DOM elements
+  projectsArray.forEach(project => {
+    const projectCard = document.createElement('div');
+    projectCard.classList.add('project-card');
+
+    projectCard.innerHTML = `
+      <h3>${project.projectTitle}</h3>
+      <img src="${project.imageUrl}" alt="Icon for ${project.projectTitle}" style="width:150px;">
+      <p>${project.briefSummary}</p>
+      <a href="${project.repositoryLink}" target="_blank">View Repository</a>
+    `;
+
+    projectSection.appendChild(projectCard);
+  });
+}
+
+// Call the render function after the data logic (assuming it's on page load)
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Ensure the data handling logic from step 2 runs first
+    // ... (include the code from Step 2 here) ...
+    renderProjects(projects);
+});
+
+ 
 </script>
 
 </body>
