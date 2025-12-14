@@ -1,394 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Cora Germany">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Assignment</title>
+  <!--
+    Author: Cora Germany
+    Date: 12/14/2025
+    Purpose: Portfolio Project Rendering Using JavaScript Objects and sessionStorage
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cora Germany | Portfolio</title>
 
-    <!-- =========================
-         INTERNAL STYLESHEET
-         ========================= -->
-    <style>
-        /* Default Light Mode Styling */
-        body {
-            background: white;
-            color: black;
-            font-family: Arial, sans-serif;
-            transition: 0.3s;
-        }
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
 
-        /* Dark Mode Styling (Applied via JavaScript) */
-        .dark-mode {
-            background: #121212;
-            color: #f2f2f2;
-        }
+    h1 {
+      text-align: center;
+    }
 
-        /* ===== Dark Mode Toggle Switch ===== */
-        .switch {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 15px;
-        }
+    #projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
 
-        .switch input {
-            display: none;
-        }
+    .project-card {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+    }
 
-        .slider {
-            width: 40px;
-            height: 20px;
-            background: gray;
-            border-radius: 20px;
-            cursor: pointer;
-            position: relative;
-        }
+    .project-card img {
+      width: 80px;
+      height: auto;
+      margin-bottom: 10px;
+    }
 
-        .slider::before {
-            content: "";
-            width: 16px;
-            height: 16px;
-            background: white;
-            border-radius: 50%;
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            transition: 0.3s;
-        }
-
-        input:checked + .slider {
-            background: #4caf50;
-        }
-
-        input:checked + .slider::before {
-            transform: translateX(20px);
-        }
-
-        nav ul {
-            display: flex;
-            gap: 15px;
-            list-style: none;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: blue;
-        }
-
-        /* Featured Content Boxes */
-        .featured-box {
-            border: 2px solid #2196f3;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 10px;
-            background: #eaf6ff;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        /* ===== WELCOME MODAL STYLING ===== */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal {
-            background: #fff8b3;
-            padding: 25px;
-            border-radius: 10px;
-            max-width: 400px;
-            text-align: center;
-        }
-
-        .modal button {
-            margin-top: 15px;
-            padding: 8px 15px;
-            cursor: pointer;
-        }
-
-        /* ===== TOOLTIP STYLING ===== */
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltip-text {
-            visibility: hidden;
-            width: 180px;
-            background-color: black;
-            color: #fff;
-            text-align: center;
-            padding: 6px;
-            border-radius: 6px;
-
-            position: absolute;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
-        }
-
-        .tooltip:hover .tooltip-text {
-            visibility: visible;
-        }
-    </style>
+    .project-card a {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #0066cc;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <h1>Cora Germany – Portfolio</h1>
+    <p style="text-align:center;">
+      JavaScript Projects Rendered Dynamically
+    </p>
+  </header>
 
-<!-- =========================
-     WELCOME MODAL (NO prompt())
-     ========================= -->
-<div id="welcomeModal" class="modal-overlay">
-    <div class="modal">
-        <h3>Welcome</h3>
-        <p>This page is a work in progress.</p>
-        <button id="closeModal">Close</button>
-    </div>
-</div>
+  <!-- Projects Section -->
+  <section id="projects"></section>
 
-<!-- =========================
-     DARK MODE TOGGLE
-     ========================= -->
-<label class="switch">
-    <input type="checkbox" id="darkModeToggle">
-    <span class="slider"></span>
-    Dark Mode
-</label>
+  <script>
+    "use strict";
 
-<!-- =========================
-     NAVIGATION
-     ========================= -->
-<header>
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#featured">Featured</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+    /*********************************************************
+     * Step 1: Define Project Objects
+     *********************************************************/
+    const project1 = {
+      title: "Road Trip Summary",
+      summary: "A JavaScript app that calculates miles traveled and fuel economy based on user input.",
+      image: "images/roadtrip.png",
+      repo: "https://github.com/corger5719-ecpi/road-trip-summary"
+    };
 
-<!-- =========================
-     ABOUT SECTION
-     ========================= -->
-<section id="about">
-    <h2>About Me</h2>
-    <p>I am an Information Technology student learning programming and web development.</p>
+    const project2 = {
+      title: "Counting Visits Page",
+      summary: "Tracks the number of times a user visits a webpage using cookies.",
+      image: "images/cookies.png",
+      repo: "https://github.com/corger5719-ecpi/counting-visits"
+    };
 
-    <h3>My Skills</h3>
-    <ul id="skillList"></ul> <!-- Filled dynamically using JavaScript -->
-</section>
+    const project3 = {
+      title: "Portfolio Website",
+      summary: "A personal portfolio site showcasing HTML, CSS, and JavaScript projects.",
+      image: "images/portfolio.png",
+      repo: "https://github.com/corger5719-ecpi/Portfolio"
+    };
 
-<!-- =========================
-     FEATURED CONTENT
-     ========================= -->
-<section id="featured">
-    <h2>Featured Content</h2>
+    /*********************************************************
+     * Step 2: Store Objects in an Array
+     *********************************************************/
+    const projectsArray = [project1, project2, project3];
 
-    <div id="universityResources" class="featured-box">
-        <h3>University Resources</h3>
-        <ul>
-            <li><a href="https://www.ecpi.edu" target="_blank">ECPI University</a></li>
-        </ul>
-    </div>
+    /*********************************************************
+     * Step 3: Store and Parse Information Using sessionStorage
+     *********************************************************/
+    let projectsData;
 
-    <div id="personalProjects" class="featured-box">
-        <h3>Personal Projects</h3>
-        <p>Coming soon!</p>
-    </div>
-</section>
-
-<!-- =========================
-     PROJECTS
-     ========================= -->
-<section id="projects">
-    <h2>Projects</h2>
-    <ul id="projectList">
-        <li>Project A</li>
-        <li>Project B</li>
-    </ul>
-</section>
-
-<!-- =========================
-     CONTACT FORM
-     ========================= -->
-<section id="contact">
-    <h2>Contact Me</h2>
-
-    <form id="contactForm">
-        <label>Name:</label>
-        <input type="text" id="name">
-
-        <label>Email:</label>
-        <input type="email" id="email">
-
-        <label>Message:</label>
-        <textarea id="message"></textarea>
-
-        <!-- Tooltip appears on hover -->
-        <div class="tooltip">
-            <button type="submit">Send Message</button>
-            <span class="tooltip-text">Click to send your message!</span>
-        </div>
-    </form>
-</section>
-
-<footer>&copy; 2025 Cora Germany</footer>
-
-<!-- =========================
-     JAVASCRIPT SECTION
-     ========================= -->
-<script>
-/* --------------------------------------------------
-   WELCOME MODAL FUNCTIONALITY
-   --------------------------------------------------
-   Displays a custom modal when the page loads
-   and allows the user to close it with a button.
--------------------------------------------------- */
-document.getElementById("closeModal").addEventListener("click", function () {
-    document.getElementById("welcomeModal").style.display = "none";
-});
-
-/* --------------------------------------------------
-   DARK MODE WITH localStorage
-   --------------------------------------------------
-   - Saves user preference when toggled
-   - Restores preference on page reload
--------------------------------------------------- */
-const toggle = document.getElementById("darkModeToggle");
-
-// Apply saved preference (if it exists)
-if (localStorage.getItem("darkMode") === "enabled") {
-    document.body.classList.add("dark-mode");
-    toggle.checked = true;
-}
-
-// Listen for toggle changes
-toggle.addEventListener("change", function () {
-    document.body.classList.toggle("dark-mode");
-
-    if (toggle.checked) {
-        localStorage.setItem("darkMode", "enabled");
+    if (!sessionStorage.getItem("projects")) {
+      // Convert array to JSON string and store it
+      sessionStorage.setItem("projects", JSON.stringify(projectsArray));
+      projectsData = projectsArray;
     } else {
-        localStorage.setItem("darkMode", "disabled");
+      // Retrieve and parse stored data
+      projectsData = JSON.parse(sessionStorage.getItem("projects"));
     }
-});
 
-/* --------------------------------------------------
-   SKILLS ARRAY + LOOP
-   --------------------------------------------------
-   Dynamically populates the Skills list using
-   a JavaScript array and forEach loop.
--------------------------------------------------- */
-const skills = ["HTML", "CSS", "JavaScript", "Git", "GitHub", "C Programming"];
-const list = document.getElementById("skillList");
+    /*********************************************************
+     * Step 4: Render Projects Dynamically
+     *********************************************************/
+    const projectsSection = document.getElementById("projects");
 
-skills.forEach(skill => {
-    const li = document.createElement("li");
-    li.textContent = skill;
-    list.appendChild(li);
-});
-
-/* --------------------------------------------------
-   CONDITIONAL FEATURED CONTENT
-   --------------------------------------------------
-   Hides the University Resources section when
-   three or more projects exist.
--------------------------------------------------- */
-window.addEventListener("load", function () {
-    const projectCount = document.querySelectorAll("#projectList li").length;
-
-    if (projectCount >= 3) {
-        document.getElementById("universityResources").classList.add("hidden");
-    }
-});
-
-/* --------------------------------------------------
-   FORM SUBMISSION STATUS MESSAGE
-   --------------------------------------------------
-   Displays a timed message simulating form submission.
--------------------------------------------------- */
-const contactForm = document.getElementById("contactForm");
-const statusMsg = document.createElement("p");
-document.getElementById("contact").appendChild(statusMsg);
-
-contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    statusMsg.textContent = "Sending message...";
-    statusMsg.style.color = "orange";
-
-    setTimeout(() => {
-        statusMsg.textContent = "Message sent successfully!";
-        statusMsg.style.color = "green";
-    }, 2000);
-});
-
-   let projects;
-const STORAGE_KEY = 'portfolioProjects';
-
-// On page load, check if the data exists in the session storage
-const storedProjects = sessionStorage.getItem(STORAGE_KEY);
-
-if (storedProjects) {
-  // If data does exist, retrieve and parse it using JSON.parse()
-  projects = JSON.parse(storedProjects);
-} else {
-  // If no data exists, store the project array in session storage
-  projects = projectData; // Assume projectData is defined as above
-  sessionStorage.setItem(STORAGE_KEY, JSON.stringify(projectData));
-}
-
-// At this point, the 'projects' array can be used for rendering
-console.log("Projects data available:", projects);
-
-    function renderProjects(projectsArray) {
-  // Select the project section of your portfolio page using a DOM selector
-  const projectSection = document.getElementById('project-list');
-  
-  if (!projectSection) {
-    console.error('Project section element not found!');
-    return;
-  }
-
-  // Loop through the array and dynamically create DOM elements
-  projectsArray.forEach(project => {
-    const projectCard = document.createElement('div');
-    projectCard.classList.add('project-card');
-
-    projectCard.innerHTML = `
-      <h3>${project.projectTitle}</h3>
-      <img src="${project.imageUrl}" alt="Icon for ${project.projectTitle}" style="width:150px;">
-      <p>${project.briefSummary}</p>
-      <a href="${project.repositoryLink}" target="_blank">View Repository</a>
-    `;
-
-    projectSection.appendChild(projectCard);
-  });
-}
-
-// Call the render function after the data logic (assuming it's on page load)
-document.addEventListener('DOMContentLoaded', (event) => {
-    // Ensure the data handling logic from step 2 runs first
-    // ... (include the code from Step 2 here) ...
-    renderProjects(projects);
-});
-
- 
-</script>
-
-</body>
-</html>
+    projectsData.forEach(project => {
+      // Create elements
+      const
